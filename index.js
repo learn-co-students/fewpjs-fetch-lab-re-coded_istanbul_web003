@@ -1,4 +1,18 @@
 function fetchBooks() {
+  return fetch('https://anapioficeandfire.com/api/books')
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(json){
+    let total = 0;
+    for(let i = 0; i<10; i++){
+      console.log(json[i].numberOfPages)
+      total += json[i].numberOfPages;
+    }
+    console.log(total, "total")
+
+    renderBooks(json);
+  })
 
 }
 
